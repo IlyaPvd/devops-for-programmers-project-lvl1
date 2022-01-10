@@ -1,5 +1,5 @@
 ci:
-	docker-compose -f Docker-compose.yml run app npm ci && docker-compose -f Docker-compose.yml run app npm test
+	docker-compose -f docker-compose.yml run app npm ci && docker-compose -f Docker-compose.yml run app npm test
 
 install:
 	docker-compose -f docker-compose.override.yml run app npm ci
