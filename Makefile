@@ -1,17 +1,14 @@
-setup:
-	npm ci
+ci:
+	docker-compose -f Docker-compose.yml run app npm ci && docker-compose -f Docker-compose.yml run app npm test
 
-start:
-	npm start
-
-dev:
-	npm run dev
-
-lint:
-	npx eslint .
+install:
+	docker-compose -f docker-compose.override.yml run app npm ci
 
 test:
-	npm test
+	docker-compose -f docker-compose.override.yml run app npm test
 
-heroku-logs:
-	heroku logs --tail
+dev:
+	docker-compose -f docker-compose.override.yml run app npm run dev
+
+start:
+	docker-compose -f docker-compose.override.yml up
