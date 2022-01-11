@@ -1,3 +1,5 @@
 ./app/node_modules
 ./pgdata
 ./github
+./README.md
+./services
