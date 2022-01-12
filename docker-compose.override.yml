@@ -1,17 +1,11 @@
+---
+
 version: '3'
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
-    volumes:
-      - ./app:/app
+    image: fleedstix/devops-for-programmers-project-lvl1_app:latest
     command: bash -c 'sleep 3 && npm start'
-    depends_on:
-      - db
 
   caddy:
     image: caddy:2.3.0
@@ -26,8 +20,10 @@ services:
   db:
     image: postgres:14.1-alpine
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
-      POSTGRES_PASSWORD: password
-      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_USER: ${DATABASE_USERNAME}
     volumes:
-      - ./pgdata:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
