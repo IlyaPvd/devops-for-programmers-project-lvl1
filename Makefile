@@ -1,5 +1,4 @@
 cp:
-	cp -f ./app/.env.example ./app/.env
 	cp -f ./app/.env.example ./.env
 
 ci:
