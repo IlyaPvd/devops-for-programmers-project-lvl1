@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: test
-        run: cp ./app/.env.example ./app/.env && make ci
+        run: make cp ci
   build_and_push:
     needs: test
     # The type of runner that the job will run on
