@@ -23,6 +23,8 @@ services:
       POSTGRES_USER: ${DATABASE_USERNAME}
     volumes:
       - pgdata:/var/lib/postgresql/data
+    ports:
+      - ${DATABASE_PORT}:${DATABASE_PORT}
 
 volumes:
   pgdata:
