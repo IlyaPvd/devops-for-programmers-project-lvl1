@@ -11,9 +11,6 @@ services:
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_USERNAME: ${DATABASE_USERNAME}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
-    volumes:
-      - ./app:/app
-    command: npm test
     depends_on:
       - db
 
@@ -23,4 +20,7 @@ services:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_USER: ${DATABASE_USERNAME}
     volumes:
-      - ./pgdata:/var/lib/postgresql/data
+      - /pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
