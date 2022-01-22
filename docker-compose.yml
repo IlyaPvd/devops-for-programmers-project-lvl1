@@ -16,6 +16,7 @@ services:
       - db
 
   db:
+    container_name: db
     image: postgres:14.1-alpine
     environment:
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
